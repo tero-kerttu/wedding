@@ -109,24 +109,35 @@ body {
   z-index: 1;
 }
 
-.day-container {
-  display: flex;
-  justify-content: center;   /* centers the whole block horizontally */
-  align-items: center;       /* vertically aligns text + map */
-  gap: 20px;                 /* space between text and map */
-  max-width: 1000px;         /* prevents stretching too wide */
-  margin: 0 auto;            /* centers container on page */
-  padding: 10px;
-}
+.map-wrapper {
+  max-width: 520px;
+  margin: 0 auto;
 
-.day-text {
-  text-align: center;
+  border-radius: 20px;
+  overflow: hidden;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 
 .map {
-  width: 400px;
-  height: 300px;
-  border: 0;
+  width: 100%;
+  height: 260px;
+  border: none;
+
+  filter: grayscale(20%) brightness(1.05) contrast(0.95);
+}
+
+.map-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(247,243,239,0.2),
+    rgba(247,243,239,0.1)
+  );
 }
 
 @media (max-width: 768px) {
@@ -160,15 +171,13 @@ section {
 }
 
 .day-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+  display: block;
+  text-align: center;
 }
 
 .day-text {
-  text-align: center;
+  max-width: 400px;
+  margin: 0 auto 20px;
 }
 
 nav {
@@ -219,26 +228,6 @@ p {
   font-family: 'Great Vibes', cursive;
   font-size: 1.8rem;
   margin-top: 10px;
-}
-
-
-/* ================= MAP + DATE ================= */
-.day-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  align-items: center;
-}
-
-.map {
-  width: 400px;
-  height: 220px;
-  border: none;
-}
-
-.day-text {
-  max-width: 300px;
 }
 
 /* ================= CAROUSEL ================= */
@@ -443,17 +432,17 @@ html, body {
 <section id="paiva">
   <h2>Aika ja paikka</h2>
 
-  <div class="day-container">
     <div class="day-text">
       <p><strong> Lauantai 8.8.2026 klo 15</strong></p>
       <p> Linnaniementie 48, 52300 Ristiina</p>
       <p> Vihkiminen ja juhla samassa paikassa</p>
     </div>
 
-    <iframe class="map"
-      src="https://maps.google.com/maps?q=Linnaniemi%20Ristiina&t=&z=13&output=embed">
-    </iframe>
-  </div>
+    <div class="map-wrapper">
+      <iframe class="map"
+        src="https://maps.google.com/maps?q=Linnaniemi%20Ristiina&t=&z=13&output=embed">
+      </iframe>
+    </div>
 </section>
 
 <!-- SCHEDULE -->
