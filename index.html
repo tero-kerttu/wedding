@@ -29,18 +29,6 @@ body {
   line-height: 1.6;
 }
 
-
-/* HERO */
-/*.hero-image {
-  width: 100%;
-  height: 60vh;
-  background-image: url("KERTTU.png");
-  background-size: cover;
-  background-position: center;
-}
-
-/*NEW
-
 /* ================= HERO ================= */
 .hero {
   position: relative;
@@ -112,10 +100,9 @@ body {
 .map-wrapper {
   max-width: 520px;
   margin: 0 auto;
-
+  position: relative;
   border-radius: 20px;
   overflow: hidden;
-
   box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 
@@ -177,7 +164,8 @@ section {
 
 .day-text {
   max-width: 400px;
-  margin: 0 auto 20px;
+  margin: 0 auto 30px;
+  text-align: center;
 }
 
 nav {
@@ -293,11 +281,6 @@ nav a {
   z-index: 999;
 }
 
-.day-container {
-  display: flex;
-  gap: 50px;
-}
-
 /* CENTERED SCHEDULE */
 .schedule {
   display: flex;
@@ -384,6 +367,23 @@ html, body {
 
 }
 
+@media (max-width: 600px) {
+
+  .day-container {
+    text-align: center;
+  }
+
+  .day-text {
+    margin: 0 auto 25px;
+    text-align: center;
+  }
+
+  .map-wrapper {
+    margin: 0 auto;
+  }
+
+}
+
 </style>
 </head>
 
@@ -404,7 +404,7 @@ html, body {
 
   <!-- CAROUSEL BACKGROUND -->
   <div class="hero-carousel">
-    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/dywb9xcy0wxs4kr78cinc/IMG_4048.jpg?rlkey=8pceftiyxo4og6ddng2ha2rno&st=zmnixbkx&raw=1')"></div>  
+    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/5fri17e64554fvg1f1nz9/4ee40d42-723e-49ba-b10f-e3628e614269.JPG?rlkey=qfgwb53s4i5qq2t993djxxu75&st=qhig7vyf&raw=1')"></div>
     <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/dywb9xcy0wxs4kr78cinc/IMG_4048.jpg?rlkey=8pceftiyxo4og6ddng2ha2rno&st=zmnixbkx&raw=1')"></div>
     <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/qr0czbqgc7kpzpp6cpmhe/PHOTO-2026-04-26-13-12-10.jpg?rlkey=q206g4ishx36d41tjw2v5gq6h&st=bccc08ox&raw=1')"></div>
     <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/612jlcd7w1107wgckasgf/d647f3bd-c661-4ad8-b0d4-55da29479e3e.JPG?rlkey=zq86xrjuyj0jc9c1rpgq8wb8j&st=0ml0l148&raw=1')"></div>
@@ -412,8 +412,6 @@ html, body {
     <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/2kecqnd0z8qzj02iy8wes/198ef052-730e-4835-b0a5-79c4138aac24.JPG?rlkey=dkizbclkism0xuevwxkmwrpdm&st=uy9p6ec5&raw=1')"></div>
     <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/jcr6rf5x7plgcu8y1f7io/d8d731bf-f89e-4f31-ac37-51d5f82868fc.JPG?rlkey=gnuh3ba6m7l9r72l4bvknj0s1&st=ver0nmvf&raw=1')"></div>
     <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/g1m152rs1baetds2252yh/dc1407be-d1ea-479e-8206-2f116481a545.JPG?rlkey=4rl1hcy7ri9b88yczqwqjs2g3&st=s60wpyio&raw=1')"></div>
-    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/p9pue3ls0428csyzvxeuk/f705d6e7-3643-4135-8f75-79710f919856.JPG?rlkey=kdghni1pya6vw1bwvihumuytn&st=sx1km5oq&raw=1')"></div>
-    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/5fri17e64554fvg1f1nz9/4ee40d42-723e-49ba-b10f-e3628e614269.JPG?rlkey=qfgwb53s4i5qq2t993djxxu75&st=qhig7vyf&raw=1')"></div>
   </div>
 
   <!-- OVERLAY -->
@@ -535,6 +533,9 @@ document.querySelectorAll("a[href^='#']").forEach(a => {
 // CAROUSEL
 let slides = document.querySelectorAll('.hero-slide');
 let index = 0;
+
+// ensure first slide is visible immediately
+slides[index].classList.add('active');
 
 setInterval(() => {
   slides[index].classList.remove('active');
