@@ -147,20 +147,38 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
 
-  padding: 30px 50px;
-  border-radius: 20px;
-
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(6px);
-
-  /* soft fade edges */
-  box-shadow: 
-    0 0 60px rgba(255,255,255,0.6),
-    0 0 120px rgba(255,255,255,0.4);
+  width: 90%;
+  max-width: 500px;
 
   text-align: center;
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.day-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.day-text {
+  text-align: center;
+}
+
+nav {
+  text-align: center;
+  padding: 120px 10px 20px;
+}
+
+nav a {
+  display: inline-block;
+  margin: 5px 10px;
 }
 
 .hero::after {
@@ -348,6 +366,33 @@ section, nav, .hero {
 #ilmoittaudu iframe {
   opacity: 0.8;
   filter: saturate(0.9) brightness(1.02);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+@media (max-width: 600px) {
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .decorative {
+    font-size: 1.6rem;
+  }
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  .lights-bg {
+    height: 120px;
+    background-size: 120% auto;
+  }
+
 }
 
 </style>
