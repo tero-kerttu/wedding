@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<title>Tero & Kerttu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f7f3ef;
+  --accent: #e6d3b3;
+  --text: #2f2a26;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+
+/* HERO */
+/*.hero-image {
+  width: 100%;
+  height: 60vh;
+  background-image: url("KERTTU.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/*NEW
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.5);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+}
+
+.decorative {
+  font-family: 'Great Vibes', cursive;
+  font-size: 5rem;
+  margin-top: 10px;
+}
+
+.hero {
+  position: relative;
+  height: 95vh;
+  overflow: hidden;
+}
+
+/* SLIDES */
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0;
+  transition: opacity 1.5s ease;
+
+  z-index: 0;
+}
+
+/* ONLY active slide is visible */
+.hero-slide.active {
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.day-container {
+  display: flex;
+  justify-content: center;   /* centers the whole block horizontally */
+  align-items: center;       /* vertically aligns text + map */
+  gap: 20px;                 /* space between text and map */
+  max-width: 1000px;         /* prevents stretching too wide */
+  margin: 0 auto;            /* centers container on page */
+  padding: 10px;
+}
+
+.day-text {
+  text-align: center;
+}
+
+.map {
+  width: 400px;
+  height: 300px;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .day-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .map {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* OVERLAY (KEY PART) */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  padding: 30px 50px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+
+  /* soft fade edges */
+  box-shadow: 
+    0 0 60px rgba(255,255,255,0.6),
+    0 0 120px rgba(255,255,255,0.4);
+
+  text-align: center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(247,243,239,0.4); /* beige wash */
+}
+
+/*NEW
+
+/* COUNTDOWN */
+  .countdown {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+/* TEXT */
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; margin-bottom: 20px; }
+
+p {
+  max-width: 500px;
+  margin: 10px auto;
+}
+
+.decorative {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  margin-top: 10px;
+}
+
+
+/* ================= MAP + DATE ================= */
+.day-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.map {
+  width: 400px;
+  height: 220px;
+  border: none;
+}
+
+.day-text {
+  max-width: 300px;
+}
+
+/* ================= CAROUSEL ================= */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 350px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--accent);
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(247,243,239,0.9);
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+/* STICKY Ilmoittaudu */
+.sticky-ilmoittaudu {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--text);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  z-index: 999;
+}
+
+.day-container {
+  display: flex;
+  gap: 50px;
+}
+
+/* CENTERED SCHEDULE */
+.schedule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.schedule p {
+  width: 240px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* FORM */
+form {
+  max-width: 400px;
+  margin: auto;
+  text-align: left;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* LOCK SCREEN */
+#lockscreen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+body {
+  position: relative;
+  z-index: 1;
+}
+
+section, nav, .hero {
+  position: relative;
+  z-index: 1;
+}
+
+#ilmoittaudu {
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
+}
+
+#ilmoittaudu iframe {
+  opacity: 0.8;
+  filter: saturate(0.9) brightness(1.02);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- CONTENT -->
+
+<nav>
+  <a href="#paiva">Aika ja paikka</a>
+  <a href="#ohjelma">Ohjelma</a>
+  <a href="#info">Info</a>
+  <a href="#ilmoittaudu">Ilmoittaudu</a>
+</nav>
+
+<a href="#ilmoittaudu" class="sticky-ilmoittaudu">Ilmoittaudu</a>
+
+<section class="hero">
+
+  <!-- CAROUSEL BACKGROUND -->
+  <div class="hero-carousel">
+    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/dywb9xcy0wxs4kr78cinc/IMG_4048.jpg?rlkey=8pceftiyxo4og6ddng2ha2rno&st=zmnixbkx&raw=1')"></div>  
+    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/dywb9xcy0wxs4kr78cinc/IMG_4048.jpg?rlkey=8pceftiyxo4og6ddng2ha2rno&st=zmnixbkx&raw=1')"></div>
+    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/qr0czbqgc7kpzpp6cpmhe/PHOTO-2026-04-26-13-12-10.jpg?rlkey=q206g4ishx36d41tjw2v5gq6h&st=bccc08ox&raw=1')"></div>
+    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/612jlcd7w1107wgckasgf/d647f3bd-c661-4ad8-b0d4-55da29479e3e.JPG?rlkey=zq86xrjuyj0jc9c1rpgq8wb8j&st=0ml0l148&raw=1')"></div>
+    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/fbzdx485ugezbm5y90cka/52ea4339-82fc-4650-bdc9-2674afe02ab1.JPG?rlkey=asfjnqkh1jpliendh7tikhoyl&st=jh2j144t&raw=1')"></div>
+    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/2kecqnd0z8qzj02iy8wes/198ef052-730e-4835-b0a5-79c4138aac24.JPG?rlkey=dkizbclkism0xuevwxkmwrpdm&st=uy9p6ec5&raw=1')"></div>
+    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/jcr6rf5x7plgcu8y1f7io/d8d731bf-f89e-4f31-ac37-51d5f82868fc.JPG?rlkey=gnuh3ba6m7l9r72l4bvknj0s1&st=ver0nmvf&raw=1')"></div>
+    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/g1m152rs1baetds2252yh/dc1407be-d1ea-479e-8206-2f116481a545.JPG?rlkey=4rl1hcy7ri9b88yczqwqjs2g3&st=s60wpyio&raw=1')"></div>
+    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/p9pue3ls0428csyzvxeuk/f705d6e7-3643-4135-8f75-79710f919856.JPG?rlkey=kdghni1pya6vw1bwvihumuytn&st=sx1km5oq&raw=1')"></div>
+    <div class="hero-slide" style="background-image:url('https://www.dropbox.com/scl/fi/5fri17e64554fvg1f1nz9/4ee40d42-723e-49ba-b10f-e3628e614269.JPG?rlkey=qfgwb53s4i5qq2t993djxxu75&st=qhig7vyf&raw=1')"></div>
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="hero-overlay"></div>
+
+  <!-- TEXT -->
+  <div class="hero-content">
+    <h1>Tero & Kerttu</h1>
+    <p class="decorative">Meidän Juhla</p>
+    <p class="countdown" id="countdown"></p>
+  </div>
+
+</section>
+
+<!-- DAY -->
+<section id="paiva">
+  <h2>Aika ja paikka</h2>
+
+  <div class="day-container">
+    <div class="day-text">
+      <p><strong> Lauantai 8.8.2026 klo 15</strong></p>
+      <p> Linnaniementie 48, 52300 Ristiina</p>
+      <p> Vihkiminen ja juhla samassa paikassa</p>
+    </div>
+
+    <iframe class="map"
+      src="https://maps.google.com/maps?q=Linnaniemi%20Ristiina&t=&z=13&output=embed">
+    </iframe>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="ohjelma">
+  <h2>Ohjelma</h2>
+
+  <p><strong>Juhlat alkavat klo 15:00</strong>
+  
+  <p>Vihkiminen</p>
+  <p>Seurustelua</p>
+  <p>Päivällinen</p>
+  <p>Musiikkia</p>
+  <p>Iltapala</p>
+  <p>Bileet</p>
+</section>
+
+<!-- MENU -->
+<section id="Ohjelma">
+  <h2>Menu</h2>
+  
+  <p>Tapas buffet</p>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <h2>Info</h2>
+
+  <p><strong>Pukukoodi</strong><br></p>
+  <p>Summer formal</p>
+  <p>Juhlat järjestetään terassilla/pihalla, joten otathan tämän huomioon jalkinevalinnassa</p>
+  <p><strong>Saapuminen & pysäköinti</strong><br>
+  <p>Juhlapaikaille on järjestetty bussikuljetus Mikkelin keskustasta. Poistuminen tapahtuu juhlijoiden omaan tahtiin kimppakyydeillä/takseilla. Bussin lähtöaika ja -paikka tarkentuu myöhemmin tälle sivulle.</p>
+  <p>Mikäli saavut omalla autolla: 500 metriä ennen juhlapaikkaa on iso hiekkaparkki pysäköintiä varten.</p>
+  <p>Juhlat jatkuvat niin kauan kun vieraat jaksavat juhlia!</p>
+  <p><strong>Majoitus</strong><br></p>
+  <p>Scandic ja Sokos Vaakuna Mikkelissä.</p>
+  <p><strong>Lahjat</strong><br>Läsnäolosi on meille tärkein 🤍</p>
+  <p>Halutessasi voit juhlistaa vihkiparia lahjoittamalla haluamasi summan vihkiparin reissutilille <strong>FI12 4600 0040 1222 24</strong> 🏖️. (Kerttu Heikkinen tai Tero Valtonen)</p>
+  <p>Mikäli aiot pitää puheen tai esityksen, ilmoitathan siitä Bestmaneille tai Kaasoille juhlien alussa.</p>
+</section>
+
+<!-- Ilmoittaudu -->
+<section id="ilmoittaudu">
+
+  <!-- VALUS EMBED -->
+  <script>
+    window.addEventListener("message", function(e) {
+      try {
+        var t = JSON.parse(e.data);
+        if ("ValusResize" === t.type) {
+          document.getElementById("Valus-DtjxXIOu").style.height = t.height + "px";
+        }
+      } catch (e) {}
+    });
+  </script>
+
+  <iframe 
+    id="Valus-DtjxXIOu"
+    src="https://app.valusoy.com/qr/DtjxXIOu/?embed=1"
+    style="width:100%; height:70vh; border:none; border-radius:12px; background:transparent;">
+  </iframe>
+
+</section>
+
+<script>
+
+// COUNTDOWN
+const target = new Date("2026-08-08T15:00:00").getTime();
+const el = document.getElementById("countdown");
+
+function update() {
+  const now = new Date().getTime();
+  const diff = target - now;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  el.innerText = days + " päivää jäljellä";
+}
+
+update();
+
+// SMOOTH SCROLL
+document.querySelectorAll("a[href^='#']").forEach(a => {
+  a.onclick = e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute("href"))
+      .scrollIntoView({ behavior: "smooth" });
+  };
+});
+
+// CAROUSEL
+let slides = document.querySelectorAll('.hero-slide');
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 5000);
+
+</script>
+
+</body>
+</html>
